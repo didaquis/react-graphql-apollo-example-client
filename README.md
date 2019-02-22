@@ -6,9 +6,11 @@ This repo is an example of application made with React + GraphQL + Apollo.
 
 
 ### Requirements:
-* Backend running with Graphql + Apollo. See: https://github.com/didaquis/react-graphql-apollo-example-server
+* Backend must be running. See: https://github.com/didaquis/react-graphql-apollo-example-server
 * Node.js 9.11.2 or higher
 * Configure the application:
+  * Edit the configuration in file `_env`
+  * Rename the file `_env` to `.env`
 
 
 ### Available Scripts:
