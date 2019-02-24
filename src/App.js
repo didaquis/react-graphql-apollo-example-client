@@ -3,6 +3,10 @@ import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 
 
+/* Import components */
+import Header from './components/Header';
+import Clientes from './components/Clientes';
+
 
 /* Configuration imported from '.env' file */
 const backendProtocol 	= process.env.REACT_APP_PROTOCOL;
@@ -25,7 +29,10 @@ class App extends Component {
 	render() {
 		return (
 			<ApolloProvider client={client}>
-				<h1>WIP</h1>
+				<Header />
+				<div className="container">
+					<Clientes />
+				</div>
 			</ApolloProvider>
 		);
 	}
