@@ -23,9 +23,9 @@ const Contactos = () => {
 												{cliente.empresa} {cliente.email}
 										</div>
 										<div className="col-md-4 d-flex justify-content-end">
-											<a className="btn btn-success d-block d-md-inline-block">
+											<button className="btn btn-success d-block d-md-inline-block">
 												Editar cliente
-											</a>
+											</button>
 										</div>
 									</div>
 								</li>)
