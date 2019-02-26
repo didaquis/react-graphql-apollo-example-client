@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
+import { Link } from 'react-router-dom';
 
 import { CLIENTES_QUERY } from '../gql/queries/index';
 
@@ -11,7 +12,7 @@ const Contactos = () => {
 
 			return (
 				<Fragment>	
-					<h2 className="text-center mt-4">Listado de clientes</h2>
+					<h2 className="text-center">Listado de clientes</h2>
 					<ul className="list-group mt-4">
 						{
 							data.getClientes.map((cliente) => {
@@ -23,9 +24,9 @@ const Contactos = () => {
 												{cliente.empresa} {cliente.email}
 										</div>
 										<div className="col-md-4 d-flex justify-content-end">
-											<button className="btn btn-success d-block d-md-inline-block">
+											<Link to={`/cliente/editar/${cliente.id}`} className="btn btn-success d-block d-md-inline-block">
 												Editar cliente
-											</button>
+											</Link>
 										</div>
 									</div>
 								</li>)

@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
+import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 
 /* Import components */
 import Header from './components/Header';
 import Clientes from './components/Clientes';
+import EditarCliente from './components/EditarCliente';
+import NuevoCliente from './components/NuevoCliente';
 
 
 /* Configuration imported from '.env' file */
@@ -29,10 +32,18 @@ class App extends Component {
 	render() {
 		return (
 			<ApolloProvider client={client}>
-				<Header />
-				<div className="container">
-					<Clientes />
-				</div>
+				<BwsRouter>
+					<Fragment>
+						<Header />
+						<div className="container">
+							<Switch>
+								<Route exact path="/" component={Clientes} />
+								<Route exact path="/cliente/editar/:id" component={EditarCliente} />
+								<Route exact path="/cliente/nuevo" component={NuevoCliente} />
+							</Switch>
+						</div>
+					</Fragment>
+				</BwsRouter>
 			</ApolloProvider>
 		);
 	}
