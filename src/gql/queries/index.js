@@ -7,5 +7,16 @@ export const CLIENTES_QUERY = gql`{
 		apellido
 		empresa
 		email
-  	}
+	}
 }`;
+
+export const CLIENTE_QUERY = gql`
+	query ObtenerCliente($id:ID!){
+		getCliente(id: $id) {
+			nombre
+			apellido
+			empresa
+			email
+			tipo
+		}
+	}`;

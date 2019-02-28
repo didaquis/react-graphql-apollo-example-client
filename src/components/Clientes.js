@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
-import { Query } from 'react-apollo';
 import { Link } from 'react-router-dom';
 
+import { Query } from 'react-apollo';
 import { CLIENTES_QUERY } from '../gql/queries/index';
+
 
 const Contactos = () => {
 	return (
