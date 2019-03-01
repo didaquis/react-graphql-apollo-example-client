@@ -28,7 +28,7 @@ const Contactos = () => {
 													<br/>
 													{cliente.empresa} {cliente.email}
 											</div>
-											<div className="col-md-4 d-flex justify-content-end">
+											<div className="col-md-4 d-flex justify-content-end align-items-center">
 												<Link to={`/cliente/editar/${cliente.id}`} className="btn btn-success d-block d-md-inline-block">
 													Editar cliente
 												</Link>

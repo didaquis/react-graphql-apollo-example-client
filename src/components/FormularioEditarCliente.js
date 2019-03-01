@@ -24,6 +24,7 @@ class FormularioEditarCliente extends Component {
             <Fragment>
                 {respuesta}
 
+                <div className="row justify-content-center">
                     <Mutation
                         mutation={ACTUALIZAR_CLIENTE}
                         onCompleted={ () => this.props.refetch().then(() => {
@@ -158,6 +159,7 @@ class FormularioEditarCliente extends Component {
                             )
                         }
                     </Mutation>
+                </div>
             </Fragment>
         )
     };
