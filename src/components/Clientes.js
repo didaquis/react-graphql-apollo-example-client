@@ -9,7 +9,7 @@ const Contactos = () => {
 	return (
 		<Query
 			query={CLIENTES_QUERY}
-			pollInterval={1000}
+			pollInterval={500}
 		>
 			{ ({ loading, error, data, startPolling, stopPolling }) => {
 				if(loading) return 'Cargando datos...';

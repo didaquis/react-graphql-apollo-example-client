@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { ApolloProvider } from 'react-apollo';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 
@@ -22,6 +22,9 @@ const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${back
 
 const client = new ApolloClient({
 	uri: backendAddress,
+	cache: new InMemoryCache({
+		addTypename: false
+	}),
 	onError: ({ networkError, graphQLErrors }) => {
 		console.log('graphQLErrors', graphQLErrors);
 		console.log('networkError', networkError);
