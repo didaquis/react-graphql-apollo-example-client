@@ -5,7 +5,7 @@ import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 
 /* Import components */
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import Clientes from './components/Clientes';
 import EditarCliente from './components/EditarCliente';
 import NuevoCliente from './components/NuevoCliente';
@@ -37,7 +37,7 @@ class App extends Component {
 			<ApolloProvider client={client}>
 				<BwsRouter>
 					<Fragment>
-						<Header />
+						<Navbar />
 						<div className="container">
 							<Switch>
 								<Route exact path="/" component={Clientes} />
