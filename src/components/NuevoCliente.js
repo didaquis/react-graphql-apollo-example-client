@@ -60,7 +60,7 @@ class NuevoCliente extends Component {
 								>
 									<div className="form-row">
 										<div className="form-group col-md-6">
-											<label>Nombre</label>
+											<label>Nombre <span className="text-danger">*</span></label>
 											<input
 												type="text"
 												className="form-control"
@@ -106,7 +106,7 @@ class NuevoCliente extends Component {
 											/>
 										</div>
 										<div className="form-group col-md-6">
-											<label>Email</label>
+											<label>Email <span className="text-danger">*</span></label>
 											<input
 												type="email"
 												className="form-control"
@@ -123,7 +123,7 @@ class NuevoCliente extends Component {
 									</div>
 									<div className="form-row">
 										<div className="form-group col-md-6">
-											<label>Tipo Cliente</label>
+											<label>Tipo Cliente <span className="text-danger">*</span></label>
 											<select
 												onChange={ e => {
 													this.setState({ cliente: {
