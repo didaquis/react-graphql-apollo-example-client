@@ -11,6 +11,8 @@ class Paginador extends Component {
 	render() {
 
 		const { actual } = this.props;
+		const {paginas} = this.state.paginador;
+
 		const btnAnterior = (actual > 1) 
 			? 
 				<button
@@ -21,8 +23,6 @@ class Paginador extends Component {
 			: 
 				'' ;
 
-		// botón siguiente
-		const {paginas} = this.state.paginador;
 		const btnSiguiente = (actual !== paginas) 
 			? 
 				<button
@@ -34,7 +34,7 @@ class Paginador extends Component {
 				'' ;
 
 		return (
-			<div className="mt-5 d-flex justify-content-center">
+			<div className="mt-5 mb-4 d-flex justify-content-center">
 				{btnAnterior}
 				{btnSiguiente}
 			</div>
