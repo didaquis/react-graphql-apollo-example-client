@@ -17,12 +17,11 @@ class FormularioEditarCliente extends Component {
         const { nombre, apellido, empresa, email, tipo } = this.state.cliente;
 
         const { error } = this.state;
-        let respuesta = (error) ? <p className="alert alert-danger p-3 text-center">Todos los campos son obligatorios</p> : '';
+        let alertaValidaciones = (error) ? <p className="alert alert-danger p-3 text-center">Los campos "Nombre", "Email" y "Tipo Cliente" son obligatorios</p> : '';
 
         return (
-
             <Fragment>
-                {respuesta}
+                {alertaValidaciones}
 
                 <div className="row justify-content-center">
                     <Mutation
@@ -41,7 +40,7 @@ class FormularioEditarCliente extends Component {
                                     const {id, nombre, apellido, empresa, email, tipo} = this.state.cliente;
 
                                     // validaciones
-                                    if (nombre === '' || apellido === '' || empresa === '' || email === '' || tipo === '') {
+                                    if (nombre === '' || email === '' || tipo === '') {
                                         this.setState({error: true});
                                         return;
                                     }
@@ -121,6 +120,7 @@ class FormularioEditarCliente extends Component {
                                             <input
                                                 type="text"
                                                 className="form-control"
+                                                required
                                                 defaultValue={email}
                                                 onChange={ e => {
                                                     this.setState({
@@ -138,6 +138,7 @@ class FormularioEditarCliente extends Component {
                                             <label>Tipo Cliente</label>
                                             <select
                                                 className="form-control"
+                                                required
                                                 defaultValue={tipo}
                                                 onChange={ e => {
                                                     this.setState({
@@ -149,8 +150,8 @@ class FormularioEditarCliente extends Component {
                                                 }}
                                             >
                                                 <option value="">Elegir...</option>
-                                                <option value="PREMIUM">PREMIUM</option>
                                                 <option value="BASICO">BÁSICO</option>
+                                                <option value="PREMIUM">PREMIUM</option>
                                             </select>
                                         </div>
                                     </div>

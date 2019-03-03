@@ -7,9 +7,6 @@ import FormularioEditarCliente from './FormularioEditarCliente';
 
 
 class EditarCliente extends Component {
-	state = {
-
-	};
 
 	render() {
 

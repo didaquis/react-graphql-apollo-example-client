@@ -17,13 +17,13 @@ class NuevoCliente extends Component {
 
 	render() {
 		const { error } = this.state;
-		let respuesta = (error) ? <p className="alert alert-danger p-3 text-center">Todos los campos son obligatorios</p> : '';
+		let alertaValidaciones = (error) ? <p className="alert alert-danger p-3 text-center">Los campos "Nombre", "Email" y "Tipo Cliente" son obligatorios</p> : '';
 
 		return (
 			<Fragment>
 				<h2 className="text-center">Nuevo Cliente</h2>
 
-				{respuesta}
+				{alertaValidaciones}
 
 				<div className="row justify-content-center">
 					<Mutation
@@ -38,7 +38,7 @@ class NuevoCliente extends Component {
 										const {nombre, apellido, empresa, email, tipo} = this.state.cliente;
 
 										// validaciones
-										if (nombre === '' || apellido === '' || empresa === '' || email === '' || tipo === '') {
+										if (nombre === '' || email === '' || tipo === '') {
 											this.setState({error: true});
 											return;
 										}
@@ -111,6 +111,7 @@ class NuevoCliente extends Component {
 												type="email"
 												className="form-control"
 												placeholder="Email"
+												required
 												onChange={ e => {
 													this.setState({ cliente: {
 														...this.state.cliente,
@@ -130,10 +131,12 @@ class NuevoCliente extends Component {
 														tipo: e.target.value
 													}})
 												}}
-												className="form-control">
+												className="form-control"
+												required
+											>
 												<option value="">Elegir...</option>
-												<option value="PREMIUM">PREMIUM</option>
 												<option value="BASICO">BÁSICO</option>
+												<option value="PREMIUM">PREMIUM</option>
 											</select>
 										</div>
 									</div>
