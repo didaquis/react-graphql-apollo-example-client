@@ -11,3 +11,13 @@ query obtenerProductos($limite: Int, $offset: Int){
 	totalProductos
 }
 `;
+
+export const PRODUCTO_QUERY = gql`
+query ObtenerProducto($id:ID!){
+	obtenerProducto(id: $id) {
+		id
+		nombre
+		precio
+		stock
+	}
+}`;

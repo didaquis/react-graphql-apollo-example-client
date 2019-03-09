@@ -52,52 +52,60 @@ class Productos extends Component {
 					return (
 						<Fragment>
 							<h2 className="text-center">Listado de productos</h2>
-							<ul className="list-group mt-4">
-								{
-									data.obtenerProductos.map((producto) => {
-										const { id } = producto;
+							<table className="table mt-4">
+								<thead>
+									<tr className="table-primary">
+										<th scope="col">Nombre</th>
+										<th scope="col">Precio</th>
+										<th scope="col">Stock</th>
+										<th scope="col">Eliminar</th>
+										<th scope="col">Editar</th>
+									</tr>
+								</thead>
+								<tbody>
+									{
+										data.obtenerProductos.map((producto) => {
+											const { id } = producto;
 
-										return (<li key={producto.id} className="list-group-item">
-											<div className="row justify-content-between align items center">
-												<div className="col-md-8 d-flex justify-content-between align items center">
-														Producto: {producto.nombre}
-														<br/>
-														Precio: {producto.precio} $
-														<br/>
-														Stock: {producto.stock} unidad/es
-												</div>
-												<div className="col-md-4 d-flex justify-content-end align-items-center">
-													<Mutation
-														mutation={ELIMINAR_PRODUCTO}
-													>
+											return (
+												<tr key={producto.id}>
+													<td>{producto.nombre}</td>
+													<td>{producto.precio}</td>
+													<td>{producto.stock}</td>
+													<td>
+														<Mutation
+															mutation={ELIMINAR_PRODUCTO}
+														>
 
 
-														{ eliminarProducto => (
-															<button
-																type="button"
-																className="btn btn-danger d-block d-md-inline-block mr-2"
-																onClick={ () => {
-																	const message = '¿Seguro que quieres eliminar el producto?';
-																	if (window.confirm(message)) {
-																		eliminarProducto({
-																			variables: { id }
-																		})
-																	}
-																} }
-															>
-																&times; Eliminar producto
-															</button>
-														) }
-													</Mutation>
-													<Link to={`/producto/editar/${producto.id}`} className="btn btn-success d-block d-md-inline-block">
-														Editar producto
-													</Link>
-												</div>
-											</div>
-										</li>)
-									})
-								}
-							</ul>
+															{ eliminarProducto => (
+																<button
+																	type="button"
+																	className="btn btn-danger d-block d-md-inline-block mr-2"
+																	onClick={ () => {
+																		const message = '¿Seguro que quieres eliminar el producto?';
+																		if (window.confirm(message)) {
+																			eliminarProducto({
+																				variables: { id }
+																			})
+																		}
+																	} }
+																>
+																	&times; Eliminar producto
+																</button>
+															) }
+														</Mutation>
+													</td>
+													<td>
+														<Link to={`/producto/editar/${producto.id}`} className="btn btn-success d-block d-md-inline-block">
+															Editar producto
+														</Link>
+													</td>
+											</tr>)
+										})
+									}
+								</tbody>
+							</table>
 							<Paginador
 								actual={this.state.paginador.actual}
 								totalRegistros={data.totalProductos}
