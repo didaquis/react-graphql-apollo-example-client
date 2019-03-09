@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import { Mutation } from 'react-apollo';
-import { NUEVO_CLIENTE } from '../../gql/mutations/index';
+import { NUEVO_CLIENTE } from '../../gql/mutations/clientes';
 
 class NuevoCliente extends Component {
 	state = {

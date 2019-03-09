@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import { Query } from 'react-apollo';
-import { CLIENTE_QUERY } from '../../gql/queries/index';
+import { CLIENTE_QUERY } from '../../gql/queries/clientes';
 
 import FormularioEditarCliente from './FormularioEditarCliente';
 

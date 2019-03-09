@@ -6,9 +6,13 @@ import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 /* Import components */
 import Navbar from './components/layout/Navbar';
+
 import Clientes from './components/clientes/Clientes';
 import EditarCliente from './components/clientes/EditarCliente';
 import NuevoCliente from './components/clientes/NuevoCliente';
+
+import NuevoProducto from './components/productos/NuevoProducto';
+import Productos from './components/productos/Productos';
 
 
 /* Configuration imported from '.env' file */
@@ -43,6 +47,8 @@ class App extends Component {
 								<Route exact path="/" component={Clientes} />
 								<Route exact path="/cliente/editar/:id" component={EditarCliente} />
 								<Route exact path="/cliente/nuevo" component={NuevoCliente} />
+								<Route exact path="/producto/nuevo" component={NuevoProducto} />
+								<Route exact path="/productos" component={Productos} />
 							</Switch>
 						</div>
 					</Fragment>

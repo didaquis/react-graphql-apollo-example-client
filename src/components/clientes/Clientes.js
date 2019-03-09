@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Query, Mutation } from 'react-apollo';
-import { CLIENTES_QUERY } from '../../gql/queries/index';
-import { ELIMINAR_CLIENTE } from '../../gql/mutations/index';
+import { CLIENTES_QUERY } from '../../gql/queries/clientes';
+import { ELIMINAR_CLIENTE } from '../../gql/mutations/clientes';
 
 
 import Paginador from '../Paginador';
@@ -60,9 +60,11 @@ class Clientes extends Component {
 										return (<li key={cliente.id} className="list-group-item">
 											<div className="row justify-content-between align items center">
 												<div className="col-md-8 d-flex justify-content-between align items center">
-														{cliente.nombre} {cliente.apellido}
+														Nombre: {cliente.nombre} {cliente.apellido}
 														<br/>
-														{cliente.empresa} {cliente.email}
+														Empresa: {cliente.empresa}
+														<br/>
+														Email: {cliente.email}
 												</div>
 												<div className="col-md-4 d-flex justify-content-end align-items-center">
 													<Mutation

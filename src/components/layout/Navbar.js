@@ -14,8 +14,11 @@ const Navbar = () => (
             <div className="collapse navbar-collapse" id="main-Navbar">
                 <ul className="navbar-nav ml-auto text-right">
                     <li className="nav-item active">
-                        <Link to="/cliente/nuevo" className="btn btn-success">
+                        <Link to="/cliente/nuevo" className="btn btn-success mr-2">
                             Nuevo Cliente
+                        </Link>
+                        <Link to="/producto/nuevo" className="btn btn-success">
+                            Nuevo Producto
                         </Link>
                     </li>
                 </ul>
