@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 
 import { Mutation } from 'react-apollo';
-import { ACTUALIZAR_CLIENTE } from '../gql/mutations/index';
+import { ACTUALIZAR_CLIENTE } from '../../gql/mutations/index';
 
 
 class FormularioEditarCliente extends Component {

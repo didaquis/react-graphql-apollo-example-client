@@ -5,10 +5,10 @@ import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 
 /* Import components */
-import Navbar from './components/Navbar';
-import Clientes from './components/Clientes';
-import EditarCliente from './components/EditarCliente';
-import NuevoCliente from './components/NuevoCliente';
+import Navbar from './components/layout/Navbar';
+import Clientes from './components/clientes/Clientes';
+import EditarCliente from './components/clientes/EditarCliente';
+import NuevoCliente from './components/clientes/NuevoCliente';
 
 
 /* Configuration imported from '.env' file */

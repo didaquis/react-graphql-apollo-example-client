@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Query, Mutation } from 'react-apollo';
-import { CLIENTES_QUERY } from '../gql/queries/index';
-import { ELIMINAR_CLIENTE } from '../gql/mutations/index';
+import { CLIENTES_QUERY } from '../../gql/queries/index';
+import { ELIMINAR_CLIENTE } from '../../gql/mutations/index';
 
 
-import Paginador from './Paginador';
+import Paginador from '../Paginador';
 
 
 class Clientes extends Component {
