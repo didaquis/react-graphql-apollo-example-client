@@ -10,8 +10,7 @@ class EditarCliente extends Component {
 
 	render() {
 
-		// obtener el ID del contacto a editar a partir de la URL
-		const { id } = this.props.match.params;
+		const { id } = this.props.match.params; // obtener el ID a partir de la URL
 
 		return (
 			<Fragment>

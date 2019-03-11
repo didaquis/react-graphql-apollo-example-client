@@ -8,44 +8,51 @@ import { ACTUALIZAR_PRODUCTO } from '../../gql/mutations/productos';
 
 class FormularioEditarProducto extends Component {
     state =  {
-        producto: this.props.producto,
-        error: false
+        ...this.props.producto,
     };
+
+    actualizarState = e => {
+        const { name, value } = e.target;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    validarForm = () => {
+        const { nombre, precio, stock } = this.state;
+        const noValido = !nombre || !precio || !stock;
+
+        return noValido;
+    }
+
 
     render() {
 
-        const { nombre, precio, stock } = this.state.producto;
+        const { nombre, precio, stock } = this.state;
 
-        const { error } = this.state;
-        let alertaValidaciones = (error) ? <p className="alert alert-danger p-3 text-center">Los campos "Nombre", "Precio" y "Stock" son obligatorios</p> : '';
+        const input = {
+            nombre,
+            precio: Number(precio),
+            stock: Number(stock)
+        };
 
         return (
             <Fragment>
-                {alertaValidaciones}
-
                 <div className="row justify-content-center">
                     <Mutation
                         mutation={ACTUALIZAR_PRODUCTO}
                         onCompleted={ () => this.props.refetch().then(() => {
-                            this.props.history.push('/');
+                            this.props.history.push('/productos');
                         }) }
                     >
-
                         {
                             actualizarProducto => (
 
                                 <form className="col-md-8 m-3" onSubmit={ e => {
                                     e.preventDefault();
 
-                                    const {id, nombre, precio, stock} = this.state.cliente;
-
-                                    // validaciones
-                                    if (nombre === '' || precio === '' || stock === '') {
-                                        this.setState({error: true});
-                                        return;
-                                    }
-
-                                    this.setState({error: false});
+                                    const {id, nombre, precio, stock} = this.state;
 
                                     const input = {
                                         id,
@@ -64,21 +71,49 @@ class FormularioEditarProducto extends Component {
                                             <input
                                                 type="text"
                                                 className="form-control"
+                                                name="nombre"
                                                 required
                                                 autoFocus
                                                 defaultValue={nombre}
-                                                onChange={ e => {
-                                                    this.setState({
-                                                        cliente: {
-                                                            ...this.state.cliente,
-                                                            nombre: e.target.value
-                                                        }
-                                                    })
-                                                }}
+                                                onChange={this.actualizarState}
                                             />
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-success float-right">Guardar Cambios</button>
+                                    <div className="form-group">
+                                        <label>Precio:</label>
+                                        <div className="input-group">
+                                            <div className="input-group-prepend">
+                                                <div className="input-group-text">$</div>
+                                            </div>
+                                            <input
+                                                onChange={this.actualizarState}
+                                                type="number"
+                                                name="precio"
+                                                required
+                                                className="form-control"
+                                                value={precio}
+                                                placeholder="Precio del Producto"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Stock:</label>
+                                        <input
+                                            onChange={this.actualizarState}
+                                            type="number"
+                                            name="stock"
+                                            required
+                                            className="form-control"
+                                            value={stock}
+                                            placeholder="stock del Producto"
+                                        />
+                                    </div>
+                                    <button
+                                        disabled={this.validarForm()}
+                                        type="submit"
+                                        className="btn btn-success float-right">
+                                            Guardar Cambios
+                                    </button>
                                 </form>
                             )
                         }
