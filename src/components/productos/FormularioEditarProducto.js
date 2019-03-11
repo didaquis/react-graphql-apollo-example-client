@@ -29,9 +29,10 @@ class FormularioEditarProducto extends Component {
 
     render() {
 
-        const { nombre, precio, stock } = this.state;
+        const { id, nombre, precio, stock } = this.state;
 
         const input = {
+            id,
             nombre,
             precio: Number(precio),
             stock: Number(stock)
