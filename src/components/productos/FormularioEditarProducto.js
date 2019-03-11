@@ -75,12 +75,13 @@ class FormularioEditarProducto extends Component {
                                                 required
                                                 autoFocus
                                                 defaultValue={nombre}
+                                                placeholder="Nombre del Producto"
                                                 onChange={this.actualizarState}
                                             />
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label>Precio:</label>
+                                        <label>Precio <span className="text-danger">*</span></label>
                                         <div className="input-group">
                                             <div className="input-group-prepend">
                                                 <div className="input-group-text">$</div>
@@ -97,7 +98,7 @@ class FormularioEditarProducto extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label>Stock:</label>
+                                        <label>Stock <span className="text-danger">*</span></label>
                                         <input
                                             onChange={this.actualizarState}
                                             type="number"
@@ -105,7 +106,7 @@ class FormularioEditarProducto extends Component {
                                             required
                                             className="form-control"
                                             value={stock}
-                                            placeholder="stock del Producto"
+                                            placeholder="Stock del Producto"
                                         />
                                     </div>
                                     <button

@@ -66,7 +66,7 @@ class NuevoProducto extends Component {
 						return(
 							<form className="col-md-8" onSubmit={ e => this.crearNuevoProducto(e, nuevoProducto)}>
 								<div className="form-group">
-									<label>Nombre:</label>
+									<label>Nombre <span className="text-danger">*</span></label>
 									<input
 										type="text"
 										name="nombre"
@@ -76,7 +76,7 @@ class NuevoProducto extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label>Precio:</label>
+									<label>Precio <span className="text-danger">*</span></label>
 									<div className="input-group">
 										<div className="input-group-prepend">
 											<div className="input-group-text">$</div>
@@ -91,12 +91,12 @@ class NuevoProducto extends Component {
 									</div>
 								</div>
 								<div className="form-group">
-									<label>Stock:</label>
+									<label>Stock <span className="text-danger">*</span></label>
 									<input
 										type="number"
 										name="stock"
 										className="form-control"
-										placeholder="stock del Producto"
+										placeholder="Stock del Producto"
 										onChange={this.actualizarState}
 									/>
 								</div>
