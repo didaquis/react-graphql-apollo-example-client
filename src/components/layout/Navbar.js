@@ -13,13 +13,48 @@ const Navbar = () => (
 
             <div className="collapse navbar-collapse" id="main-Navbar">
                 <ul className="navbar-nav ml-auto text-right">
-                    <li className="nav-item">
-                        <Link to="/cliente/nuevo" className="btn btn-success mr-2">
-                            Nuevo Cliente
-                        </Link>
-                        <Link to="/producto/nuevo" className="btn btn-success">
-                            Nuevo Producto
-                        </Link>
+                    <li className="nav-item dropdown mr-lg-2 mb-2 mb-lg-0">
+                        <button
+                            className="nav-link dropdown-toggle btn btn-block btn-success"
+                            id="dropwdown-button-clientes"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                        >
+                            Gestionar Clientes
+                        </button>
+                        <div
+                            className="dropdown-menu"
+                            aria-labelledby="dropwdown-button-clientes"
+                        >
+                            <Link to="/clientes" className="dropdown-item">
+                                Ver Clientes
+                            </Link>
+                            <Link to="/cliente/nuevo" className="dropdown-item">
+                                Nuevo Cliente
+                            </Link>
+                        </div>
+
+                    </li>
+                    <li className="nav-item dropdown">
+                        <button
+                            className="nav-link dropdown-toggle btn btn-block btn-success"
+                            id="dropwdown-button-productos"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                        >
+                            Gestionar Productos
+                        </button>
+                        <div
+                            className="dropdown-menu"
+                            aria-labelledby="dropwdown-button-productos"
+                        >
+                            <Link to="/productos" className="dropdown-item">
+                                Ver Productos
+                            </Link>
+                            <Link to="/producto/nuevo" className="dropdown-item">
+                                Nuevo Producto
+                            </Link>
+                        </div>
                     </li>
                 </ul>
             </div>
