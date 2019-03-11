@@ -61,6 +61,7 @@ class NuevoProducto extends Component {
 					<Mutation
 						mutation={NUEVO_PRODUCTO}
 						variables={{ input }}
+						onCompleted={ () => this.props.history.push('/productos') }
 					>
 					{(nuevoProducto, {loading, error, data}) => {
 						return(

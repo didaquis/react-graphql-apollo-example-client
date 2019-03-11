@@ -6,6 +6,7 @@ import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 /* Import components */
 import Navbar from './components/layout/Navbar';
+import Home from './components/layout/Home';
 
 import Clientes from './components/clientes/Clientes';
 import EditarCliente from './components/clientes/EditarCliente';
@@ -45,11 +46,12 @@ class App extends Component {
 						<Navbar />
 						<div className="container">
 							<Switch>
-								<Route exact path="/" component={Clientes} />
-								<Route exact path="/cliente/editar/:id" component={EditarCliente} />
+								<Route exact path="/" component={Home} />
+								<Route exact path="/clientes" component={Clientes} />
 								<Route exact path="/cliente/nuevo" component={NuevoCliente} />
-								<Route exact path="/producto/nuevo" component={NuevoProducto} />
+								<Route exact path="/cliente/editar/:id" component={EditarCliente} />
 								<Route exact path="/productos" component={Productos} />
+								<Route exact path="/producto/nuevo" component={NuevoProducto} />
 								<Route exact path="/producto/editar/:id" component={EditarProducto} />
 							</Switch>
 						</div>
