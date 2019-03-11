@@ -7,6 +7,7 @@ import { ELIMINAR_CLIENTE } from '../../gql/mutations/clientes';
 
 
 import Paginador from '../Paginador';
+import Exito from '../alertas/Exito';
 
 
 class Clientes extends Component {
@@ -17,6 +18,10 @@ class Clientes extends Component {
 		paginador: {
 			actual: 1,
 			offset: 0
+		},
+		alerta: {
+			mostrar: false,
+			mensaje: ''
 		}
 	}
 
@@ -39,6 +44,11 @@ class Clientes extends Component {
 	}
 
 	render() {
+
+		const { alerta: { mostrar, mensaje } } = this.state;
+
+		const alerta = (mostrar) ? <Exito mensaje={mensaje} /> : '';
+
 		return (
 			<Query
 				query={CLIENTES_QUERY}
@@ -52,6 +62,7 @@ class Clientes extends Component {
 					return (
 						<Fragment>
 							<h2 className="text-center">Listado de clientes</h2>
+							{alerta}
 							<ul className="list-group mt-4">
 								{
 									data.getClientes.map((cliente) => {
@@ -69,6 +80,23 @@ class Clientes extends Component {
 												<div className="col-md-4 d-flex justify-content-end align-items-center">
 													<Mutation
 														mutation={ELIMINAR_CLIENTE}
+														onCompleted={(data) => {
+															this.setState({
+																alerta: {
+																	mostrar: true,
+																	mensaje: data.eliminarCliente
+																}
+															}, () => {
+																setTimeout(() => {
+																	this.setState({
+																		alerta: {
+																			mostrar: false,
+																			mensaje: ''
+																		}
+																	})
+																}, 3000)
+															})
+														}}
 													>
 
 
