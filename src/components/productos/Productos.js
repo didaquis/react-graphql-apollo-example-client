@@ -7,6 +7,7 @@ import { ELIMINAR_PRODUCTO } from '../../gql/mutations/productos';
 
 
 import Paginador from '../Paginador';
+import Exito from '../alertas/Exito';
 
 
 class Productos extends Component {
@@ -17,6 +18,10 @@ class Productos extends Component {
 		paginador: {
 			actual: 1,
 			offset: 0
+		},
+		alerta: {
+			mostrar: false,
+			mensaje: ''
 		}
 	}
 
@@ -39,6 +44,11 @@ class Productos extends Component {
 	}
 
 	render() {
+
+		const { alerta: { mostrar, mensaje } } = this.state;
+
+		const alerta = (mostrar) ? <Exito mensaje={mensaje} /> : '';
+
 		return (
 			<Query
 				query={PRODUCTOS_QUERY}
@@ -52,6 +62,7 @@ class Productos extends Component {
 					return (
 						<Fragment>
 							<h2 className="text-center">Listado de productos</h2>
+							{alerta}
 							<table className="table mt-4">
 								<thead>
 									<tr className="table-primary">
@@ -75,9 +86,24 @@ class Productos extends Component {
 													<td>
 														<Mutation
 															mutation={ELIMINAR_PRODUCTO}
+															onCompleted={(data) => {
+																this.setState({
+																	alerta: {
+																		mostrar: true,
+																		mensaje: data.eliminarProducto
+																	}
+																}, () => {
+																	setTimeout(() => {
+																		this.setState({
+																			alerta: {
+																				mostrar: false,
+																				mensaje: ''
+																			}
+																		})
+																	}, 3000)
+																})
+															}}
 														>
-
-
 															{ eliminarProducto => (
 																<button
 																	type="button"
