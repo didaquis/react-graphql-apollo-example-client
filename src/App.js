@@ -16,6 +16,8 @@ import Productos from './components/productos/Productos';
 import EditarProducto from './components/productos/EditarProducto';
 import NuevoProducto from './components/productos/NuevoProducto';
 
+import NuevoPedido from './components/pedidos/NuevoPedido';
+
 
 /* Configuration imported from '.env' file */
 const backendProtocol 	= process.env.REACT_APP_PROTOCOL;
@@ -53,6 +55,7 @@ class App extends Component {
 								<Route exact path="/productos" component={Productos} />
 								<Route exact path="/producto/nuevo" component={NuevoProducto} />
 								<Route exact path="/producto/editar/:id" component={EditarProducto} />
+								<Route exact path="/pedido/nuevo/:id" component={NuevoPedido} />
 							</Switch>
 						</div>
 					</Fragment>
