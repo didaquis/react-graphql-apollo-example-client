@@ -1,7 +1,12 @@
 import React, { Component, Fragment } from 'react';
 
+import { Query } from 'react-apollo';
+import { PRODUCTOS_QUERY } from '../../gql/queries/productos';
 
 import DatosCliente from './DatosCliente';
+import ContenidoPedido from './ContenidoPedido';
+import Spinner from '../Spinner/Spinner';
+
 
 class NuevoPedido extends Component {
 	state = {
@@ -23,7 +28,23 @@ class NuevoPedido extends Component {
 						/>
 					</div>
 					<div className="col-md-9">
-						pedido
+						<Query query={PRODUCTOS_QUERY}>
+						{({ loading, error, data }) => {
+							if(loading) {
+								return (
+									<Spinner />
+								);
+							}
+							if(error) return `Error: ${error.message}`;
+
+							return (
+								<ContenidoPedido
+									productos={data.obtenerProductos}
+									idCliente={id}
+								/ >
+							)
+						}}
+						</Query>
 					</div>
 				</div>
 			</Fragment>
