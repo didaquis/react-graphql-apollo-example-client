@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import { PRODUCTO_QUERY } from '../../gql/queries/productos';
 
 import FormularioEditarProducto from './FormularioEditarProducto';
+import Spinner from '../Spinner/Spinner';
 
 
 class EditarProducto extends Component {
@@ -20,7 +21,11 @@ class EditarProducto extends Component {
 					variables={ { id } }
 				>
 					{({ loading, error, data, refetch }) => {
-						if(loading) return 'Cargando datos...';
+						if(loading) {
+							return (
+								<Spinner />
+							);
+						}
 						if(error) return `Error: ${error.message}`;
 
 						return (

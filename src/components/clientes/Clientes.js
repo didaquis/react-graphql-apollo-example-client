@@ -8,6 +8,7 @@ import { ELIMINAR_CLIENTE } from '../../gql/mutations/clientes';
 
 import Paginador from '../Paginador';
 import Exito from '../alertas/Exito';
+import Spinner from '../Spinner/Spinner';
 
 
 class Clientes extends Component {
@@ -56,7 +57,11 @@ class Clientes extends Component {
 				variables={{limite: this.limiteRegistrosVisibles, offset: this.state.paginador.offset}}
 			>
 				{ ({ loading, error, data, startPolling, stopPolling }) => {
-					if(loading) return 'Cargando datos...';
+					if(loading) {
+						return (
+							<Spinner />
+						);
+					}
 					if(error) return `Error: ${error.message}`;
 
 					return (

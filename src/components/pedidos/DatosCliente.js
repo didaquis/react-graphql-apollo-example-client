@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
 import { CLIENTE_QUERY } from '../../gql/queries/clientes';
 
+import Spinner from '../Spinner/Spinner';
+
 
 const DatosCliente = ({ id }) => {
 	return(
@@ -14,7 +16,11 @@ const DatosCliente = ({ id }) => {
 				pollInterval={500}
 			>
 				{({ loading, error, data, startPolling, stopPolling }) => {
-					if(loading) return 'Cargando datos...';
+					if(loading) {
+						return (
+							<Spinner />
+						);
+					}
 					if(error) return `Error: ${error.message}`;
 
 					const { nombre, apellido, email, empresa, tipo } = data.getCliente;
