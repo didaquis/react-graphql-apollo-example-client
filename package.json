@@ -1,6 +1,6 @@
 {
   "name": "react-graphql-apollo-example-client",
-  "version": "0.7.28",
+  "version": "0.7.29",
   "description": "react-graphql-apollo-example-client",
   "private": true,
   "dependencies": {
@@ -12,7 +12,8 @@
     "react-apollo": "^2.4.1",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-select": "^2.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
