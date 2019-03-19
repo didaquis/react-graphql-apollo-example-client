@@ -15,6 +15,9 @@ const Producto = (props) => {
 					<input
 						type="number"
 						className="form-control"
+						min="0"
+						max={producto.stock}
+						step="1"
 						onChange={ (e) => {
 							props.actualizarCantidad(e.target.value, props.index)
 						}}
