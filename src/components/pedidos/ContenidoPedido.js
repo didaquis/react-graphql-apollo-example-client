@@ -8,11 +8,43 @@ import Resumen from './Resumen';
 
 class ContenidoPedido extends Component {
 	state = {
-		productos: []
+		productos: [],
+		total: 0
 	}
 
 	seleccionarProducto = (productos) => {
-		this.setState({ productos });
+		this.setState({ productos }, () => this.actualizarTotal());
+	}
+
+	actualizarTotal = () => {
+		const productos = this.state.productos;
+		let nuevoValorTotal = 0;
+
+		if (productos.length !== 0) {
+			productos.map(producto => {
+				const cantidad = producto.cantidad || 0;
+				return nuevoValorTotal += (cantidad * producto.precio)
+			});
+		}
+
+		this.setState({
+			total: nuevoValorTotal
+		});
+	}
+
+	actualizarCantidad = (cantidad, index) => {
+		const productos = this.state.productos;
+
+		productos[index].cantidad = Number(cantidad);
+
+		this.setState({ productos }, () => this.actualizarTotal());
+	}
+
+	eliminarProducto = (id) => {
+		const productos = this.state.productos;
+
+		const productosRestantes = productos.filter(producto => producto.id !== id);
+		this.setState({ productos: productosRestantes }, () => this.actualizarTotal());
 	}
 
 	render() {
@@ -33,11 +65,21 @@ class ContenidoPedido extends Component {
 					placeholder="Seleccionar productos"
 					getOptionValue={ (options) => options.id }
 					getOptionLabel={ (options) => options.nombre }
+					value={this.state.productos}
 				/>
 
 				<Resumen
 					productos={this.state.productos}
+					actualizarCantidad={this.actualizarCantidad}
+					eliminarProducto={this.eliminarProducto}
 				/>
+
+				<p className="font-weight-bold float-right mt-3">
+					Total:
+					<span className="font-weight-normal ml-1">
+						{this.state.total} $
+					</span>
+				</p>
 			</Fragment>
 		);
 	}

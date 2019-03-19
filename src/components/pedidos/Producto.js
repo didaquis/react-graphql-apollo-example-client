@@ -12,10 +12,21 @@ const Producto = (props) => {
 				<td>{producto.precio} $</td>
 				<td>{producto.stock}</td>
 				<td>
-					<input type="number" className="form-control"/>
+					<input
+						type="number"
+						className="form-control"
+						onChange={ (e) => {
+							props.actualizarCantidad(e.target.value, props.index)
+						}}
+						defaultValue={producto.cantidad || 0}
+					/>
 				</td>
 				<td>
-					<button type="button" className="btn btn-danger font-weight-bold">&times; Eliminar</button>
+					<button
+						type="button"
+						className="btn btn-danger font-weight-bold"
+						onClick={e => props.eliminarProducto(producto.id)}
+					>&times; Eliminar</button>
 				</td>
 			</tr>
 		</Fragment>
