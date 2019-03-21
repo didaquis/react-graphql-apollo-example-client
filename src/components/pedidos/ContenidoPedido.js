@@ -49,9 +49,6 @@ class ContenidoPedido extends Component {
 	}
 
 	render() {
-
-			//{ console.log(this.props.productos) }
-			//{ console.log(this.props.idCliente) }
 		return(
 			<Fragment>
 				<h3 className="text-center mb-5">Seleccionar artículos</h3>
@@ -85,6 +82,7 @@ class ContenidoPedido extends Component {
 				<GenerarPedido
 					productos={this.state.productos}
 					total={this.state.total}
+					idCliente={this.props.idCliente}
 				/>
 			</Fragment>
 		);

@@ -1,4 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+import { Mutation } from 'react-apollo';
+import { NUEVO_PEDIDO } from '../../gql/mutations/pedidos';
 
 
 const validarPedido = (props) => {
@@ -8,14 +12,32 @@ const validarPedido = (props) => {
 const GenerarPedido = (props) => {
 
 	return (
-		<Fragment>
-			<button
-				disabled={validarPedido(props)}
-				type="button"
-				className="btn btn-warning font-weight-bold mt-4"
-			>Generar Pedido</button>
-		</Fragment>
+		<Mutation
+			mutation={NUEVO_PEDIDO}
+			onCompleted={ () => props.history.push('/clientes') }
+		>
+			{nuevoPedido => {
+				return (
+					<button
+						disabled={validarPedido(props)}
+						type="button"
+						className="btn btn-warning font-weight-bold mt-4"
+						onClick={e => {
+							const productosInput = props.productos.map(({nombre, stock, ...objeto}) => objeto);
+
+							const input = {
+								pedido: productosInput,
+								total: props.total,
+								cliente: props.idCliente
+							};
+
+							nuevoPedido({variables: { input }});
+						}}
+					>Generar Pedido</button>
+				)
+			}}
+		</Mutation>
 	);
 }
 
-export default GenerarPedido;
+export default withRouter(GenerarPedido);
