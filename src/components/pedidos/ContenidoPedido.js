@@ -4,6 +4,7 @@ import Animated from 'react-select/lib/animated';
 
 
 import Resumen from './Resumen';
+import GenerarPedido from './GenerarPedido';
 
 
 class ContenidoPedido extends Component {
@@ -80,6 +81,11 @@ class ContenidoPedido extends Component {
 						{this.state.total} $
 					</span>
 				</p>
+
+				<GenerarPedido
+					productos={this.state.productos}
+					total={this.state.total}
+				/>
 			</Fragment>
 		);
 	}
