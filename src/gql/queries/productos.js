@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const PRODUCTOS_QUERY = gql`
-query ObtenerProductos($limite: Int, $offset: Int){
-	obtenerProductos(limite: $limite, offset: $offset){
+query ObtenerProductos($limite: Int, $offset: Int, $hasStock: Boolean){
+	obtenerProductos(limite: $limite, offset: $offset, hasStock: $hasStock){
 		id
 		nombre
 		precio
