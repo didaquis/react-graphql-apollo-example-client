@@ -19,6 +19,9 @@ const Producto = (props) => {
 						max={producto.stock}
 						step="1"
 						onChange={ (e) => {
+							if (e.target.value > producto.stock || e.target.value < 0) {
+								e.target.value = 0;
+							}
 							props.actualizarCantidad(e.target.value, props.index)
 						}}
 						defaultValue={producto.cantidad || 0}

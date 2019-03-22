@@ -5,6 +5,7 @@ import Animated from 'react-select/lib/animated';
 
 import Resumen from './Resumen';
 import GenerarPedido from './GenerarPedido';
+import Error from '../alertas/Error';
 
 
 class ContenidoPedido extends Component {
@@ -49,12 +50,15 @@ class ContenidoPedido extends Component {
 	}
 
 	render() {
+
+		const mensaje = (this.state.total < 0) ? <Error mensaje="Las cantidades no pueden ser negativas" /> : '';
 		return(
 			<Fragment>
 				<h3 className="text-center mb-5">Seleccionar artículos</h3>
 				{this.props.productos.forEach((p) => {
 					return (<p>lol: {p.nombre}</p>)
 				})}
+				{mensaje}
 				<Select
 					onChange={this.seleccionarProducto}
 					options={this.props.productos}

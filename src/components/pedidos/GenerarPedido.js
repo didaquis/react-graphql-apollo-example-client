@@ -6,7 +6,7 @@ import { NUEVO_PEDIDO } from '../../gql/mutations/pedidos';
 
 
 const validarPedido = (props) => {
-	return !props.productos || props.total === 0;
+	return !props.productos || props.total <= 0;
 }
 
 const GenerarPedido = (props) => {
