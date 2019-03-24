@@ -6,15 +6,32 @@ import { ACTUALIZAR_ESTADO } from '../../gql/mutations/pedidos';
 
 import Spinner from '../Spinner/Spinner';
 import ResumenProducto from './ResumenProducto';
+import './Pedido.css';
 
 const Pedido = (props) => {
 
 	const { pedido, clienteId } = props;
 	const fecha = new Date(Number(pedido.fecha));
+	const estadoPedido = pedido.estado;
+
+	let borderColorPorEstadoPedido;
+	switch (estadoPedido) {
+		case 'PENDIENTE':
+			borderColorPorEstadoPedido = 'border-light';
+			break;
+		case 'CANCELADO':
+			borderColorPorEstadoPedido = 'border-danger';
+			break;
+		case 'COMPLETADO':
+			borderColorPorEstadoPedido = 'border-success';
+			break;
+		default:
+			borderColorPorEstadoPedido = '';
+	}
 
 	return (
 		<div className="col-md-4 mt-4">
-			<div className="card mb-3">
+			<div className={`card mb-3 customStyles__border--wide ${borderColorPorEstadoPedido}`}>
 				<div className="card-body">
 					<p className="card-text font-weight-bold">Estado:
 						<Mutation mutation={ACTUALIZAR_ESTADO}>
