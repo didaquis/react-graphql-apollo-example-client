@@ -17,6 +17,7 @@ import EditarProducto from './components/productos/EditarProducto';
 import NuevoProducto from './components/productos/NuevoProducto';
 
 import NuevoPedido from './components/pedidos/NuevoPedido';
+import PedidosCliente from './components/pedidos/PedidosCliente';
 
 
 /* Configuration imported from '.env' file */
@@ -56,6 +57,7 @@ class App extends Component {
 								<Route exact path="/producto/nuevo" component={NuevoProducto} />
 								<Route exact path="/producto/editar/:id" component={EditarProducto} />
 								<Route exact path="/pedido/nuevo/:id" component={NuevoPedido} />
+								<Route exact path="/pedido/:id" component={PedidosCliente} />
 							</Switch>
 						</div>
 					</Fragment>
