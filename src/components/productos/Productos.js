@@ -53,7 +53,7 @@ class Productos extends Component {
 		return (
 			<Query
 				query={PRODUCTOS_QUERY}
-				pollInterval={500}
+				pollInterval={200}
 				variables={{limite: this.limiteRegistrosVisibles, offset: this.state.paginador.offset}}
 			>
 				{ ({ loading, error, data, startPolling, stopPolling }) => {

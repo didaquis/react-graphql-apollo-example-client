@@ -53,7 +53,7 @@ class Clientes extends Component {
 		return (
 			<Query
 				query={CLIENTES_QUERY}
-				pollInterval={500}
+				pollInterval={200}
 				variables={{limite: this.limiteRegistrosVisibles, offset: this.state.paginador.offset}}
 			>
 				{ ({ loading, error, data, startPolling, stopPolling }) => {

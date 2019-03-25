@@ -18,7 +18,7 @@ const PedidosCliente = (props) => {
 					<Query
 						query={OBTENER_PEDIDOS}
 						variables={ { clienteId } }
-						pollInterval={300}
+						pollInterval={200}
 					>
 						{({ loading, error, data, startPolling, stopPolling }) => {
 							if(loading) {

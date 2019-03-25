@@ -13,7 +13,7 @@ const DatosCliente = ({ id }) => {
 			<Query
 				query={CLIENTE_QUERY}
 				variables={{ id }}
-				pollInterval={500}
+				pollInterval={200}
 			>
 				{({ loading, error, data, startPolling, stopPolling }) => {
 					if(loading) {
