@@ -19,7 +19,7 @@ import NuevoProducto from './components/productos/NuevoProducto';
 import NuevoPedido from './components/pedidos/NuevoPedido';
 import PedidosCliente from './components/pedidos/PedidosCliente';
 
-import Estadisticas from './components/panel/Estadisticas';
+import Estadisticas from './components/estadisticas/Estadisticas';
 
 
 /* Configuration imported from '.env' file */
