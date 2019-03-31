@@ -19,7 +19,7 @@ import NuevoProducto from './components/productos/NuevoProducto';
 import NuevoPedido from './components/pedidos/NuevoPedido';
 import PedidosCliente from './components/pedidos/PedidosCliente';
 
-import Panel from './components/panel/Panel';
+import Estadisticas from './components/panel/Estadisticas';
 
 
 /* Configuration imported from '.env' file */
@@ -52,6 +52,7 @@ class App extends Component {
 						<div className="container">
 							<Switch>
 								<Route exact path="/" component={Home} />
+								<Route exact path="/estadisticas" component={Estadisticas} />
 								<Route exact path="/clientes" component={Clientes} />
 								<Route exact path="/cliente/nuevo" component={NuevoCliente} />
 								<Route exact path="/cliente/editar/:id" component={EditarCliente} />
@@ -60,7 +61,6 @@ class App extends Component {
 								<Route exact path="/producto/editar/:id" component={EditarProducto} />
 								<Route exact path="/pedido/nuevo/:id" component={NuevoPedido} />
 								<Route exact path="/pedido/:id" component={PedidosCliente} />
-								<Route exact path="/panel" component={Panel} />
 							</Switch>
 						</div>
 					</Fragment>

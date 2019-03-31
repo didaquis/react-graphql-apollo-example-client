@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 
 import Clientes from './Clientes';
 
-const Panel = (props) => {
+const Estadisticas = (props) => {
 
 		return(
 			<Fragment>
-				<h2 className="text-center">Panel</h2>
+				<h2 className="text-center">Panel estadísticas</h2>
 				<Clientes />
 			</Fragment>
 		);
 }
 
-export default Panel;
+export default Estadisticas;
