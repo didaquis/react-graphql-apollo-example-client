@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { Query, Mutation } from 'react-apollo';
-import { PRODUCTO_QUERY } from '../../gql/queries/productos';
+import { Mutation } from 'react-apollo';
 import { ACTUALIZAR_ESTADO } from '../../gql/mutations/pedidos';
 
-import Spinner from '../Spinner/Spinner';
 import ResumenProducto from './ResumenProducto';
 import './Pedido.css';
 
@@ -72,27 +70,13 @@ const Pedido = (props) => {
 
 					<h3 className="card-text text-center mb-3">Artículos del pedido</h3>
 					{pedido.pedido.map((producto, index) => {
-						const { id } = producto;
 						return (
-							<Query key={pedido.id+index} query={PRODUCTO_QUERY} variables={{id}}>
-								{({ loading, error, data }) => {
-									if(loading) {
-										return (
-											<Spinner />
-										);
-									}
-									if(error) return `Error: ${error.message}`;
-
-									return (
-										<ResumenProducto
-											producto={data.obtenerProducto}
-											cantidad={producto.cantidad}
-											precio={producto.precio}
-											key={producto.id}
-										/>
-									)
-								}}
-							</Query>
+							<ResumenProducto
+								nombre={producto.nombre}
+								cantidad={producto.cantidad}
+								precio={producto.precio}
+								key={producto.id}
+							/>
 						);
 					})}
 				</div>

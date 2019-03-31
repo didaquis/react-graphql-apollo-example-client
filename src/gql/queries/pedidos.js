@@ -9,6 +9,7 @@ query ObtenerPedidos($clienteId: String!){
 		estado
 		pedido {
 			id
+			nombre
 			cantidad
 			precio
 		}

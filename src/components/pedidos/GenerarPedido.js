@@ -23,7 +23,7 @@ const GenerarPedido = (props) => {
 						type="button"
 						className="btn btn-warning font-weight-bold mt-4"
 						onClick={e => {
-							const productosInput = props.productos.map(({nombre, stock, ...objeto}) => objeto);
+							const productosInput = props.productos.map(({stock, ...objeto}) => objeto);
 
 							const input = {
 								pedido: productosInput,
