@@ -21,7 +21,7 @@ class NuevoPedido extends Component {
 			<Fragment>
 				<h2 className="text-center">Nuevo pedido</h2>
 
-				<div className="row">
+				<div className="row mt-4">
 					<div className="col-md-3">
 						<DatosCliente
 							id={id}

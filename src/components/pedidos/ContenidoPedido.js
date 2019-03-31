@@ -6,6 +6,7 @@ import Animated from 'react-select/lib/animated';
 import Resumen from './Resumen';
 import GenerarPedido from './GenerarPedido';
 import Error from '../alertas/Error';
+import Info from '../alertas/Info';
 
 
 class ContenidoPedido extends Component {
@@ -52,44 +53,54 @@ class ContenidoPedido extends Component {
 	render() {
 
 		const mensaje = (this.state.total < 0) ? <Error mensaje="Las cantidades no pueden ser negativas" /> : '';
-		return(
-			<Fragment>
-				<h3 className="text-center mb-5">Seleccionar artículos</h3>
-				{this.props.productos.forEach((p) => {
-					return (<p>lol: {p.nombre}</p>)
-				})}
-				{mensaje}
-				<Select
-					onChange={this.seleccionarProducto}
-					options={this.props.productos}
-					isMulti={true}
-					components={ Animated() }
-					placeholder="Seleccionar productos"
-					getOptionValue={ (options) => options.id }
-					getOptionLabel={ (options) => options.nombre }
-					value={this.state.productos}
-				/>
 
-				<Resumen
-					productos={this.state.productos}
-					actualizarCantidad={this.actualizarCantidad}
-					eliminarProducto={this.eliminarProducto}
-				/>
+		if (!this.props.productos.length) {
+			const mensaje = 'No hay productos registrados, o bien no dispone de stock';
+			return (
+					<Fragment>
+						<h3 className="text-center mb-5">Seleccionar artículos</h3>
+						<div className="mx-auto">
+							<Info mensaje={mensaje} />
+						</div>
+					</Fragment>
+				)
+		} else {
+			return(
+				<Fragment>
+					<h3 className="text-center mb-5">Seleccionar artículos</h3>
+					{mensaje}
+					<Select
+						onChange={this.seleccionarProducto}
+						options={this.props.productos}
+						isMulti={true}
+						components={ Animated() }
+						placeholder="Seleccionar productos"
+						getOptionValue={ (options) => options.id }
+						getOptionLabel={ (options) => options.nombre }
+						value={this.state.productos}
+					/>
 
-				<p className="font-weight-bold float-right mt-3">
-					Total:
-					<span className="font-weight-normal ml-1">
-						{this.state.total} $
-					</span>
-				</p>
+					<Resumen
+						productos={this.state.productos}
+						actualizarCantidad={this.actualizarCantidad}
+						eliminarProducto={this.eliminarProducto}
+					/>
 
-				<GenerarPedido
-					productos={this.state.productos}
-					total={this.state.total}
-					idCliente={this.props.idCliente}
-				/>
-			</Fragment>
-		);
+					<p className="font-weight-bold float-right mt-3">
+						Total:
+						<span className="font-weight-normal ml-1">
+							{this.state.total} $
+						</span>
+					</p>
+
+					<GenerarPedido
+						productos={this.state.productos}
+						total={this.state.total}
+						idCliente={this.props.idCliente}
+					/>
+				</Fragment>
+			);
+		}
 	}
 }
 
