@@ -1,7 +1,5 @@
 # react-graphql-apollo-example (client)
 
-## **WIP** ⚠️
-
 This repo is an example of application made with React + GraphQL + Apollo.
 
 
