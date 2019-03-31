@@ -39,8 +39,10 @@ class NuevoProducto extends Component {
 	crearNuevoProducto = (e, cb) => {
 		e.preventDefault();
 
-		cb().then(data =>{
+		cb().then(data => {
 			this.limpiarState();
+		}).then(() => {
+			this.props.history.push('/productos');
 		});
 	}
 
@@ -61,7 +63,6 @@ class NuevoProducto extends Component {
 					<Mutation
 						mutation={NUEVO_PRODUCTO}
 						variables={{ input }}
-						onCompleted={ () => this.props.history.push('/productos') }
 					>
 					{(nuevoProducto, {loading, error, data}) => {
 						return(

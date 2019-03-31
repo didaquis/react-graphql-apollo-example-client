@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import { OBTENER_PEDIDOS } from '../../gql/queries/pedidos';
 
 import Spinner from '../Spinner/Spinner';
+import Info from '../alertas/Info';
 import Pedido from './Pedido';
 
 
@@ -29,15 +30,25 @@ const PedidosCliente = (props) => {
 
 							if(error) return `Error: ${error.message}`;
 
-							return (
-								data.obtenerPedidos.map(pedido => {
-									return (<Pedido 
-										key={pedido.id}
-										pedido={pedido}
-										clienteId={clienteId}
-									/>);
-								})
-							);
+							if (data.obtenerPedidos.length) {
+								return (
+									data.obtenerPedidos.map(pedido => {
+										return (<Pedido 
+											key={pedido.id}
+											pedido={pedido}
+											clienteId={clienteId}
+										/>);
+									})
+								);
+							} else {
+								const mensaje = 'Este cliente todavía no ha realizado ningún pedido';
+								return (
+									<div className="mx-auto mt-4">
+										<Info mensaje={mensaje} />
+									</div>
+								);
+							}
+
 						}}
 					</Query>
 				</div>

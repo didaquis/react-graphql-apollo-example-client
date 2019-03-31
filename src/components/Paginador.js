@@ -13,25 +13,30 @@ class Paginador extends Component {
 		const { actual } = this.props;
 		const {paginas} = this.state.paginador;
 
-		const btnAnterior = (actual > 1) 
-			? 
+		const btnAnterior = (actual > 1)
+			?
 				<button
 					type="button"
 					className="btn btn-success mr-2"
 					onClick={this.props.paginaAnterior}
 				>&laquo; Anterior</button> 
-			: 
-				'' ;
+			:
+				'';
 
-		const btnSiguiente = (actual !== paginas) 
-			? 
-				<button
-					type="button"
-					className="btn btn-success"
-					onClick={this.props.paginaSiguiente}
-				>Siguiente &raquo;</button> 
-			: 
-				'' ;
+
+		let btnSiguiente = '';
+
+		if (paginas !== 0) {
+			btnSiguiente = (actual !== paginas)
+				?
+					<button
+						type="button"
+						className="btn btn-success"
+						onClick={this.props.paginaSiguiente}
+					>Siguiente &raquo;</button> 
+				:
+					'';
+		}
 
 		return (
 			<div className="mt-5 mb-4 d-flex justify-content-center">
