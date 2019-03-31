@@ -19,6 +19,7 @@ class EditarProducto extends Component {
 				<Query
 					query={PRODUCTO_QUERY}
 					variables={ { id } }
+					pollInterval={200}
 				>
 					{({ loading, error, data, refetch }) => {
 						if(loading) {

@@ -19,6 +19,7 @@ class EditarCliente extends Component {
 				<Query
 					query={CLIENTE_QUERY}
 					variables={ { id } }
+					pollInterval={200}
 				>
 					{({ loading, error, data, refetch }) => {
 						if(loading) {

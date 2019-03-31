@@ -31,6 +31,7 @@ class NuevoPedido extends Component {
 						<Query
 							query={PRODUCTOS_QUERY}
 							variables={ { hasStock: true } }
+							pollInterval={200}
 						>
 						{({ loading, error, data }) => {
 							if(loading) {
