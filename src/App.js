@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, StrictMode } from 'react';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
@@ -48,21 +48,23 @@ class App extends Component {
 			<ApolloProvider client={client}>
 				<BwsRouter>
 					<Fragment>
-						<Navbar />
-						<div className="container">
-							<Switch>
-								<Route exact path="/" component={Home} />
-								<Route exact path="/estadisticas" component={Estadisticas} />
-								<Route exact path="/clientes" component={Clientes} />
-								<Route exact path="/cliente/nuevo" component={NuevoCliente} />
-								<Route exact path="/cliente/editar/:id" component={EditarCliente} />
-								<Route exact path="/productos" component={Productos} />
-								<Route exact path="/producto/nuevo" component={NuevoProducto} />
-								<Route exact path="/producto/editar/:id" component={EditarProducto} />
-								<Route exact path="/pedido/nuevo/:id" component={NuevoPedido} />
-								<Route exact path="/pedido/:id" component={PedidosCliente} />
-							</Switch>
-						</div>
+						<StrictMode>
+							<Navbar />
+							<div className="container">
+								<Switch>
+									<Route exact path="/" component={Home} />
+									<Route exact path="/estadisticas" component={Estadisticas} />
+									<Route exact path="/clientes" component={Clientes} />
+									<Route exact path="/cliente/nuevo" component={NuevoCliente} />
+									<Route exact path="/cliente/editar/:id" component={EditarCliente} />
+									<Route exact path="/productos" component={Productos} />
+									<Route exact path="/producto/nuevo" component={NuevoProducto} />
+									<Route exact path="/producto/editar/:id" component={EditarProducto} />
+									<Route exact path="/pedido/nuevo/:id" component={NuevoPedido} />
+									<Route exact path="/pedido/:id" component={PedidosCliente} />
+								</Switch>
+							</div>
+						</StrictMode>
 					</Fragment>
 				</BwsRouter>
 			</ApolloProvider>
