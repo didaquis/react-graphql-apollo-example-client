@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
 import { OBTENER_PEDIDOS } from '../../gql/queries/pedidos';
 
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 import Info from '../alertas/Info';
 import Pedido from './Pedido';
 

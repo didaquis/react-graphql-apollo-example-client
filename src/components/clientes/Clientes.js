@@ -9,7 +9,7 @@ import { ELIMINAR_CLIENTE } from '../../gql/mutations/clientes';
 import Paginador from '../Paginador';
 import Exito from '../alertas/Exito';
 import Info from '../alertas/Info';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 
 class Clientes extends Component {

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
 import { CLIENTE_QUERY } from '../../gql/queries/clientes';
 
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 
 const DatosCliente = ({ id }) => {

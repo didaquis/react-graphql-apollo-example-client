@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Query, Mutation } from 'react-apollo';
 import { PRODUCTOS_QUERY } from '../../gql/queries/productos';
 import { ELIMINAR_PRODUCTO } from '../../gql/mutations/productos';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 
 import Paginador from '../Paginador';

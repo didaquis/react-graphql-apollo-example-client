@@ -5,7 +5,7 @@ import { PRODUCTOS_QUERY } from '../../gql/queries/productos';
 
 import DatosCliente from './DatosCliente';
 import ContenidoPedido from './ContenidoPedido';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 
 class NuevoPedido extends Component {

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
 import { TOP_CLIENTES } from '../../gql/queries/graficas';
 
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 import Info from '../alertas/Info';
 
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';

@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import { CLIENTE_QUERY } from '../../gql/queries/clientes';
 
 import FormularioEditarCliente from './FormularioEditarCliente';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 
 class EditarCliente extends Component {

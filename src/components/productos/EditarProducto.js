@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import { PRODUCTO_QUERY } from '../../gql/queries/productos';
 
 import FormularioEditarProducto from './FormularioEditarProducto';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 
 class EditarProducto extends Component {
