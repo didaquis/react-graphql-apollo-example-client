@@ -1,13 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Home = () => (
-    <Fragment>
-        <h2 className="text-center">CRM</h2>
-        <div className="row justify-content-center">
-        	<h3 className="my-5">He creado este software con el único objetivo de aprender a usar GraphQL y Apollo.</h3>
-        	<h4>Puedes dar de alta productos y clientes. Podrás realizar ventas asociadas a esos clientes y gestionar el estado de los pedidos.</h4>
-        </div>
-    </Fragment>
+    <div className="jumbotron mt-5">
+        <h2 className="display-4 mb-4">CRM</h2>
+        <p className="lead">He creado este proyecto con el único objetivo de aprender a usar GraphQL y Apollo.</p>
+        <p className="lead">Este software permite: registrarse en el sistema, loguearse, dar de alta productos, dar de alta clientes, gestionar stock, gestionar clientes, gestionar pedidos, obtener estadísticas de ventas, etc.</p>
+    </div>
 );
 
 export default Home;

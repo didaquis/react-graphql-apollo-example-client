@@ -25,6 +25,9 @@ import PedidosCliente from './components/pedidos/PedidosCliente';
 import Estadisticas from './components/estadisticas/Estadisticas';
 
 import Registro from './components/auth/Registro';
+import Login from './components/auth/Login';
+
+import Error404 from './components/Error404';
 
 
 class App extends Component {
@@ -48,6 +51,8 @@ class App extends Component {
 									<Route exact path="/pedido/nuevo/:id" component={NuevoPedido} />
 									<Route exact path="/pedido/:id" component={PedidosCliente} />
 									<Route exact path="/registro" component={Registro} />
+									<Route exact path="/login" component={Login} />
+									<Route component={Error404} />
 								</Switch>
 							</div>
 						</StrictMode>
