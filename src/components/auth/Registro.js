@@ -24,28 +24,28 @@ class Registro extends Component {
 
 	validarForm = () => {
 		const { usuario, password, repetirPassword } = this.state;
-		let formNoValido = false;
+		let validacionesFormularioCorrectas = false;
 		if (!usuario || !password || !repetirPassword) {
-			formNoValido = true;
+			validacionesFormularioCorrectas = true;
 		}
 
 		if (password !== repetirPassword) {
-			formNoValido = true;
+			validacionesFormularioCorrectas = true;
 		}
 
 		if (!regexNombreUsuario.test(usuario)) {
-			formNoValido = true;
+			validacionesFormularioCorrectas = true;
 		}
 
 		if (!regexPassword.test(password)) {
-			formNoValido = true;
+			validacionesFormularioCorrectas = true;
 		}
 
 		if (!regexPassword.test(repetirPassword)) {
-			formNoValido = true;
+			validacionesFormularioCorrectas = true;
 		}
 
-		return formNoValido;
+		return validacionesFormularioCorrectas;
 	}
 
 	render() {
