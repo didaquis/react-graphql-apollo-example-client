@@ -68,7 +68,7 @@ class Login extends Component {
 
         const { usuario, password } = this.state;
 
-        return ( 
+        return (
             <Fragment>
                 <h2 className="text-center">Registrar nuevo usuario</h2>
                 <div className="row justify-content-center mt-4">
@@ -87,7 +87,7 @@ class Login extends Component {
 									<div className="form-group">
 										<label>Usuario <span className="text-danger">*</span></label>
 										<input
-											onChange={this.actualizarState} 
+											onChange={this.actualizarState}
 											value={usuario}
 											type="text"
 											name="usuario"
@@ -101,7 +101,7 @@ class Login extends Component {
 									<div className="form-group">
 										<label>Password <span className="text-danger">*</span></label>
 										<input
-											onChange={this.actualizarState} 
+											onChange={this.actualizarState}
 											value={password}
 											type="password"
 											name="password"
@@ -112,11 +112,11 @@ class Login extends Component {
 										<small id="passwordHelp" className="form-text text-muted">Mínimo 8 caracters. Debe contener números, letras en minúscula y letras en mayúscula. Los espacios no están permitidos</small>
 									</div>
 
-									<button 
-										disabled={ 
+									<button
+										disabled={
 											loading || this.validarForm()
 										}
-										type="submit" 
+										type="submit"
 										className="btn btn-success float-right">
 											Iniciar Sesión
 									</button>
