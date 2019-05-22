@@ -6,14 +6,13 @@ import { NUEVO_USUARIO } from '../../gql/mutations/auth';
 
 import Error from '../alertas/Error';
 
+import { regexNombreUsuario, regexPassword } from '../../utils/utils';
+
 const initialState = {
 	usuario: '',
 	password: '',
 	repetirPassword: ''
 }
-
-const regexNombreUsuario = new RegExp(/^[A-Za-z0-9.\-_*/|]{8,}$/);
-const regexPassword = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!*^?+-_@#$%&]{8,}$/);
 
 class Registro extends Component {
 	state = {
@@ -75,7 +74,6 @@ class Registro extends Component {
 		return (
 			<Fragment>
 				<h2 className="text-center">Registrar nuevo usuario</h2>
-
 				<div className="row justify-content-center mt-4">
 					<Mutation
 						mutation={NUEVO_USUARIO}
