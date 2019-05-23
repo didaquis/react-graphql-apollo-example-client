@@ -36,12 +36,12 @@ class Login extends Component {
 
 		usuarioAutenticar().then(async ({data}) => {
 			saveSession('token', data.autenticarUsuario.token);
-			//TODO: ejecutar query una vez se haya iniciado sesión
 
+			await this.props.refetch();
 
 			this.limpiarState();
 
-			//TODO: redireccionar
+			this.props.history.push('/estadisticas');
 		});
     }
 
