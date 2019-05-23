@@ -1,12 +1,12 @@
 {
   "name": "react-graphql-apollo-example-client",
-  "version": "0.13.59",
+  "version": "0.13.60",
   "description": "react-graphql-apollo-example-client",
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.4.0",
     "dotenv": "^8.0.0",
-    "graphql": "^14.3.0",
+    "graphql": "^14.3.1",
     "graphql-tag": "^2.10.1",
     "react": "^16.8.6",
     "react-apollo": "^2.5.6",
