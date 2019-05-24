@@ -10,7 +10,7 @@ const Navbar = ({ session }) => {
                 <Link to="/" className="navbar-brand text-light font-weight-bold">
                     CRM
                 </Link>
-                { (session.obtenerUsuario) ? NavbarForAuthUsers() : null }
+                { (session.obtenerUsuario) ? NavbarForAuthUsers() : NavbarForNoAuthUsers() }
             </div>
         </nav>
     );
@@ -74,6 +74,30 @@ const NavbarForAuthUsers = () => {
                         </div>
                     </li>
                     <CerrarSession />
+                </ul>
+            </div>
+        </Fragment>
+    );
+}
+
+const NavbarForNoAuthUsers = () => {
+    return (
+        <Fragment>
+            <button className="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#main-Navbar" aria-controls="main-Navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="main-Navbar">
+                <ul className="navbar-nav ml-auto text-right">
+
+                    <li className="nav-item mr-lg-2 mb-2 mb-lg-0">
+                        <Link to="/registro" className="nav-link btn btn-block btn-success">Registrarse</Link>
+                    </li>
+
+                    <li className="nav-item mr-lg-2 mb-2 mb-lg-0">
+                        <Link to="/login" className="nav-link btn btn-block btn-success">Acceder</Link>
+                    </li>
+
                 </ul>
             </div>
         </Fragment>
