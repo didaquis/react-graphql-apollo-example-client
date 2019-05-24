@@ -32,22 +32,6 @@ const App = ({ refetch, session }) => {
 						<Route
 							exact path="/"
 							component={Home} />
-						{
-							(obtenerUsuario) ?
-								<Route
-									exact path={['/registro', '/login']}
-									component={Home}
-								/>
-							:
-							<Fragment>
-								<Route
-									exact path="/registro"
-									component={Registro} />
-								<Route
-									exact path="/login"
-									render={() => <Login refetch={refetch} />} />
-							</Fragment>
-						}
 						<PrivateRoute
 							exact path="/estadisticas"
 							component={Estadisticas}
@@ -84,7 +68,28 @@ const App = ({ refetch, session }) => {
 							exact path="/pedido/:id"
 							component={PedidosCliente}
 							usuarioAutenticado={obtenerUsuario} />
-						<Route component={Error404} />
+
+						{
+							(obtenerUsuario) ?
+								<Fragment>
+									<Route
+										exact path={['/registro', '/login']}
+										component={Home}
+									/>
+									<Route component={Error404} />
+								</Fragment>
+							:
+							<Fragment>
+								<Route
+									exact path="/registro"
+									component={Registro} />
+								<Route
+									exact path="/login"
+									render={() => <Login refetch={refetch} />} />
+								<Route component={Error404} />
+							</Fragment>
+						}
+
 					</Switch>
 				</div>
 			</StrictMode>
