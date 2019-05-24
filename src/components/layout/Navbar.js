@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
-        <div className="container">
-            <Link to="/" className="navbar-brand text-light font-weight-bold">
-                CRM
-            </Link>
+const Navbar = ({ session }) => {
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
+            <div className="container">
+                <Link to="/" className="navbar-brand text-light font-weight-bold">
+                    CRM
+                </Link>
+                { (session.obtenerUsuario) ? NavbarForAuthUsers() : null }
+            </div>
+        </nav>
+    );
+};
+
+const NavbarForAuthUsers = () => {
+    return (
+        <Fragment>
             <button className="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#main-Navbar" aria-controls="main-Navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -63,8 +73,8 @@ const Navbar = () => (
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-);
+        </Fragment>
+    );
+}
 
 export default Navbar;

@@ -1,22 +1,22 @@
 import React, { StrictMode } from 'react';
 import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
-import Navbar from './components/layout/Navbar';
-import Home from './components/layout/Home';
-import Clientes from './components/clientes/Clientes';
-import EditarCliente from './components/clientes/EditarCliente';
-import NuevoCliente from './components/clientes/NuevoCliente';
-import Productos from './components/productos/Productos';
-import EditarProducto from './components/productos/EditarProducto';
-import NuevoProducto from './components/productos/NuevoProducto';
-import NuevoPedido from './components/pedidos/NuevoPedido';
-import PedidosCliente from './components/pedidos/PedidosCliente';
-import Estadisticas from './components/estadisticas/Estadisticas';
-import Registro from './components/auth/Registro';
-import Login from './components/auth/Login';
-import Session from './components/auth/Session';
-import PrivateRoute from './components/auth/PrivateRoute';
-import Error404 from './components/Error404';
+import Navbar 			from './components/layout/Navbar';
+import Home 			from './components/layout/Home';
+import Clientes 		from './components/clientes/Clientes';
+import EditarCliente 	from './components/clientes/EditarCliente';
+import NuevoCliente 	from './components/clientes/NuevoCliente';
+import Productos 		from './components/productos/Productos';
+import EditarProducto 	from './components/productos/EditarProducto';
+import NuevoProducto 	from './components/productos/NuevoProducto';
+import NuevoPedido 		from './components/pedidos/NuevoPedido';
+import PedidosCliente 	from './components/pedidos/PedidosCliente';
+import Estadisticas 	from './components/estadisticas/Estadisticas';
+import Registro 		from './components/auth/Registro';
+import Login 			from './components/auth/Login';
+import Session 			from './components/auth/Session';
+import PrivateRoute 	from './components/auth/PrivateRoute';
+import Error404 		from './components/Error404';
 
 
 const App = ({ refetch, session }) => {
@@ -26,7 +26,7 @@ const App = ({ refetch, session }) => {
 	return (
 		<BwsRouter>
 			<StrictMode>
-				<Navbar />
+				<Navbar session={session} />
 				<div className="container">
 					<Switch>
 						<Route
