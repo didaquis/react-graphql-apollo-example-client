@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import React, { StrictMode, Fragment } from 'react';
 import { BrowserRouter as BwsRouter, Route, Switch } from 'react-router-dom';
 
 import Navbar 			from './components/layout/Navbar';
@@ -32,12 +32,22 @@ const App = ({ refetch, session }) => {
 						<Route
 							exact path="/"
 							component={Home} />
-						<Route
-							exact path="/registro"
-							component={Registro} />
-						<Route
-							exact path="/login"
-							render={() => <Login refetch={refetch} />} />
+						{
+							(obtenerUsuario) ?
+								<Route
+									exact path={['/registro', '/login']}
+									component={Home}
+								/>
+							:
+							<Fragment>
+								<Route
+									exact path="/registro"
+									component={Registro} />
+								<Route
+									exact path="/login"
+									render={() => <Login refetch={refetch} />} />
+							</Fragment>
+						}
 						<PrivateRoute
 							exact path="/estadisticas"
 							component={Estadisticas}
