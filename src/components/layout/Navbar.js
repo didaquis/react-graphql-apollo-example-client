@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
+import CerrarSession from '../auth/CerrarSession';
+
 const Navbar = ({ session }) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
@@ -71,6 +73,7 @@ const NavbarForAuthUsers = () => {
                             </Link>
                         </div>
                     </li>
+                    <CerrarSession />
                 </ul>
             </div>
         </Fragment>

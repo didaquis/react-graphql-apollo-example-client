@@ -1,6 +1,6 @@
 {
   "name": "react-graphql-apollo-example-client",
-  "version": "0.13.61",
+  "version": "0.13.62",
   "description": "react-graphql-apollo-example-client",
   "private": true,
   "dependencies": {
