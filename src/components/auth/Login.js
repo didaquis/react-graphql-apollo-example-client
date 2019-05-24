@@ -70,7 +70,7 @@ class Login extends Component {
 
         return (
             <Fragment>
-                <h2 className="text-center">Registrar nuevo usuario</h2>
+                <h2 className="text-center">Acceder</h2>
                 <div className="row justify-content-center mt-4">
                     <Mutation
                         mutation={AUTENTICAR_USUARIO}
